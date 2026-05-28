@@ -1,0 +1,20 @@
+<p>character-list</p>
+
+<h4>Listado</h4>
+
+    @for (character of characters(); track character.id; let idx = $index) {
+      @if (character.power > 500) {
+        <ul>
+          <span>{{ idx + 1 }} - {{ character.name }}</span>
+          <strong
+            [class.text-danger]="character.power > 9000"
+            [class.text-info]="character.power < 8000"
+            >({{ character.power }})</strong
+          >
+        </ul>
+      } @else {
+        <ul>
+        <span class="text-muted">{{ idx + 1 }} - Weak:{{ character.name }}({{ character.power }})</span>
+        </ul>
+      }
+    }
