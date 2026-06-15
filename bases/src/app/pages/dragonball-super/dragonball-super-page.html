@@ -2,52 +2,14 @@
 
 <section class="row">
   <div class="col-12 col-sm-6">
-    <h4>Agregar: {{ name() }} - Poder: {{ power() }}</h4>
-
-    <input
-    type="text"
-    class="form-control mb-2"
-    placeholder="Nombre del personaje"
-    [value]="name()"
-    (change)="name.set(txtName.value)"
-    (input)="name.set(txtName.value)"
-    #txtName
+    <dragonball-character-add
+    (newCharacter)="dragonballService.addCharacter($event)"
     />
-
-    <input
-    type="number"
-    class="form-control mb-2 mt-2"
-    placeholder="Poder"
-    #intPower
-    [value]="power()"
-    (input)="power.set(intPower.valueAsNumber)"
-    />
-
-    <button
-    class="mt-2 btn btn-primary"
-    (click)="add()">Agregar</button>
   </div>
 
   <div class="col-12 col-sm-6">
-
-    <dragonball-character-list [characters]="characters()" />
-    <h4>Listado</h4>
-
-    @for (character of characters(); track character.id; let idx = $index) {
-      @if (character.power > 500) {
-        <ul>
-          <span>{{ idx + 1 }} - {{ character.name }}</span>
-          <strong
-            [class.text-danger]="character.power > 9000"
-            [class.text-info]="character.power < 8000"
-            >({{ character.power }})</strong
-          >
-        </ul>
-      } @else {
-        <ul>
-        <span class="text-muted">{{ idx + 1 }} - Weak:{{ character.name }}({{ character.power }})</span>
-        </ul>
-      }
-    }
+    <dragonball-character-list
+    title="Listado Poderosos"
+    [characters]="dragonballService.characters()" />
   </div>
 </section>
