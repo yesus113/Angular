@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
+import { environment } from '@environments/environment'; //? con alias desde tsconfig.json
+//import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'side-menu-header',
   imports: [],
   templateUrl: './side-menu-header.html',
 })
-export class SideMenuHeader {}
+export class SideMenuHeader {
+  envs = environment;
+}
