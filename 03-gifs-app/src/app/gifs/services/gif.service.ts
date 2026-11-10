@@ -14,7 +14,7 @@ export class GifService {
   }
 
   loadTrendingGifs() {
-    this.http.get<GiphyResponse>(`${environment.giphyUrl}/gifs/trending`,
+    this.http.get<GiphyResponse>(`${environment.giphyBaseUrl}/gifs/trending`,
       {
         params: {
           api_key: environment.giphyApiKey,
