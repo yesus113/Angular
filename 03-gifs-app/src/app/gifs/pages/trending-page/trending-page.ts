@@ -26,5 +26,5 @@ const imageUrls: string[] = [
 export default class Trending {
   gifs = signal(imageUrls);
 
-  gitService = inject(GifService);
+  gitService = inject(GifService); // TODO 
 }
